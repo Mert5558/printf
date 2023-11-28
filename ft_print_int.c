@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 13:58:22 by merdal            #+#    #+#             */
-/*   Updated: 2023/11/21 14:47:21 by merdal           ###   ########.fr       */
+/*   Updated: 2023/11/28 11:42:43 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,6 @@ int	ft_putnbr_fd(int n, int fd)
 
 	sign = 1;
 	counter = 0;
-	if (n < 0)
-	{
-		ft_putchar_fd('-', fd);
-		sign = -1;
-		counter++;
-	}
 	if (n / 10)
 	{
 		ft_putnbr_fd(n / 10 * sign, fd);
