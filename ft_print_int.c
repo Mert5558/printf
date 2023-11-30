@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 13:58:22 by merdal            #+#    #+#             */
-/*   Updated: 2023/11/28 11:42:43 by merdal           ###   ########.fr       */
+/*   Updated: 2023/11/30 12:00:18 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,15 @@ int	ft_putnbr_fd(int n, int fd)
 {
 	char	c;
 	int		sign;
-	int		counter;
 
 	sign = 1;
-	counter = 0;
 	if (n / 10)
 	{
 		ft_putnbr_fd(n / 10 * sign, fd);
-		counter++;
 	}
 	c = '0' + n % 10 * sign;
 	ft_putchar_fd(c, fd);
-	counter++;
-	return (counter);
+	return (0);
 }
 
 int	int_min(void)
