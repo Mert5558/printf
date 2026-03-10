@@ -15,14 +15,17 @@ CC = cc
 CFLAGS = -Wall -Werror -Wextra
 
 SOURCES = \
-	ft_printf.c ft_putchar_fd.c ft_putstr_fd.c ft_strlen.c ft_print_char.c ft_print_int.c ft_print_str.c \
-	ft_print_unsigned.c ft_print_x_hex.c ft_print_xx_hex.c ft_print_ptr.c
+	src/ft_printf.c src/ft_putchar_fd.c src/ft_putstr_fd.c src/ft_strlen.c src/ft_print_char.c src/ft_print_int.c src/ft_print_str.c \
+	src/ft_print_unsigned.c src/ft_print_x_hex.c src/ft_print_xx_hex.c src/ft_print_ptr.c
 OBJECTS = $(SOURCES:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
 	ar rcs $(NAME) $(OBJECTS)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 		rm -f $(OBJECTS)

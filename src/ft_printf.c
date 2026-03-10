@@ -12,25 +12,25 @@
 
 #include "ft_printf.h"
 
-int	ft_check_type(const char *input, void *arg)
+int	ft_check_type(const char *input, va_list args)
 {
 	int	i;
 
 	i = 0;
 	if (*input == 'c')
-		i += ft_print_char((int)arg);
+		i += ft_print_char(va_arg(args, int));
 	else if (*input == 'd' || *input == 'i')
-		i += ft_print_int((int)arg);
+		i += ft_print_int(va_arg(args, int));
 	else if (*input == 's')
-		i += ft_print_str((char *)arg);
+		i += ft_print_str(va_arg(args, char *));
 	else if (*input == 'u')
-		i += ft_print_unsigned((unsigned int)arg);
+		i += ft_print_unsigned(va_arg(args, unsigned int));
 	else if (*input == 'x')
-		i += ft_print_x_hex((unsigned int)arg);
+		i += ft_print_x_hex(va_arg(args, unsigned int));
 	else if (*input == 'X')
-		i += ft_print_xx_hex((unsigned int)arg);
+		i += ft_print_xx_hex(va_arg(args, unsigned int));
 	else if (*input == 'p')
-		i += ft_print_ptr((unsigned long long)arg);
+		i += ft_print_ptr(va_arg(args, unsigned long long));
 	return (i);
 }
 
@@ -49,7 +49,7 @@ int	ft_printf(const char *input, ...)
 			if (*input == '%')
 				i += ft_print_char('%');
 			else
-				i += ft_check_type(input, va_arg(args, void *));
+				i += ft_check_type(input, args);
 		}
 		else
 		{
